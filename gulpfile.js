@@ -1,0 +1,91 @@
+const { series, parallel, src, dest, watch } = require('gulp')
+
+var sass = require('gulp-sass'),
+    postcss = require('gulp-postcss'),
+    autoprefixer = require('autoprefixer'),
+    cssnano = require('cssnano'),
+    sourcemaps = require('gulp-sourcemaps'),
+    haml = require('gulp-ruby-haml'),
+    minify = require('gulp-minify')
+
+var browserSync = require('browser-sync').create();
+
+var paths = {
+  styles: {
+    src: './app/assets/scss/**/*.scss',
+    dest: './dist/assets/css'
+  }, 
+  haml: {
+    src: 'app/views/*.haml',
+    dest: './dist'
+  },
+  js: {
+    src: 'app/assets/js/**/*.js',
+    dest: './dist/assets/js'
+  },
+  images: {
+    src: './app/assets/images/*',
+    dest: './dist/assets/images'
+  },
+  fonts: {
+    src: './app/assets/fonts/*',
+    dest: './dist/assets/fonts'
+  }
+};
+
+function views() {
+  return (
+    src(paths.haml.src)
+    .pipe(haml())
+    .pipe(dest(paths.haml.dest))
+  );
+}
+
+function style() {
+  return (
+     src(paths.styles.src)
+    .pipe(sourcemaps.init())
+    .pipe(sass())
+    .on("error", sass.logError)
+    .pipe(postcss([autoprefixer(), cssnano()]))
+    .pipe(sourcemaps.write())
+    .pipe(dest(paths.styles.dest))
+    .pipe(browserSync.stream())
+  )
+}
+
+function fonts() {
+  src(paths.fonts.src)
+  .pipe(dest(paths.fonts.dest));
+}
+
+function images() {
+  src(paths.images.src)
+  .pipe(dest(paths.images.dest));
+}
+
+function scripts() {
+  src(paths.js.src, {allowEmpty: true})
+  .pipe(minify({noSource: true}))
+  .pipe(dest(paths.js.dest))
+}
+
+exports.style = style
+exports.default = () => {
+  browserSync.init({
+    server: {
+        baseDir: "./dist"
+    }
+  });
+  watch(paths.styles.src, {ignoreInitial: true}, style);
+  watch(paths.haml.src, {ignoreInitial: true}, views);
+  watch(paths.images.src, {ignoreInitial: true}, images);
+  watch(paths.fonts.src, {ignoreInitial: true}, fonts);
+  watch(paths.js.src, {ignoreInitial: true}, scripts);
+
+  watch(paths.styles.dest, (done) => { browserSync.reload(); done(); });
+  watch(paths.haml.dest, (done) => { browserSync.reload(); done(); });
+  watch(paths.images.dest, (done) => { browserSync.reload(); done(); });
+  watch(paths.fonts.dest, (done) => { browserSync.reload(); done(); });
+  watch(paths.js.dest, (done) => { browserSync.reload(); done(); });
+}
