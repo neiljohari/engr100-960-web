@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:200,300,400,600');
 
 body {
   margin: 0;
@@ -52,7 +52,7 @@ header {
 }
 
 .hero {
-  margin-top: 2.2em;
+  margin: 2.2em 0;
   h1 {
     white-space: nowrap;
     font-size: 1.2em;
@@ -67,7 +67,7 @@ header {
 }
 
 .hero-button {
-  margin-top: 2.2em;
+  margin: 2.2em 0;
   a {
     text-decoration: none;
     background-color: #FE5F55;
@@ -120,10 +120,10 @@ header {
   }
 
   .hero {
-    margin-top: 3.5em;
+    margin: 3.5em 0;
     h1 {
       font-size: 2.6em;
-      margin-bottom: .4em;
+      margin: .4em 0;
     }
     .subhead {
       font-size: 1em;
@@ -132,6 +132,6 @@ header {
 
   .hero-button {
     font-size: 1em;
-    margin-top: 1.5em;
+    margin: 1.5em;
   }
 }
