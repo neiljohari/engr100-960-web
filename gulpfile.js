@@ -5,8 +5,9 @@ var sass = require("gulp-sass"),
   autoprefixer = require("autoprefixer"),
   cssnano = require("cssnano"),
   sourcemaps = require("gulp-sourcemaps"),
-  haml = require("gulp-ruby-haml"),
-  minify = require("gulp-minify");
+  pug = require("gulp-pug"),
+  minify = require("gulp-minify"),
+  filter = require('gulp-filter');
 
 var browserSync = require("browser-sync").create();
 
@@ -15,8 +16,8 @@ var paths = {
     src: "./app/assets/scss/**/*.scss",
     dest: "./dist/assets/css",
   },
-  haml: {
-    src: "./app/views/*.haml",
+  views: {
+    src: ["./app/views/*.pug"],
     dest: "./dist",
   },
   js: {
@@ -34,7 +35,19 @@ var paths = {
 };
 
 function views() {
-  return src(paths.haml.src).pipe(haml()).pipe(dest(paths.haml.dest));
+  return src(paths.views.src)
+    .pipe(pug())
+    .pipe(
+      filter(function (file) {
+        // Added views to exclude folder from building.
+        return (
+          !/\/_/.test(file.path) &&
+          !/^_/.test(file.relative) &&
+          !/views/.test(file.relative)
+        );
+      })
+    )
+    .pipe(dest(paths.views.dest));
 }
 
 function style() {
@@ -68,22 +81,24 @@ exports.images = images;
 exports.fonts = fonts;
 exports.scripts = scripts;
 exports.default = () => {
+
   browserSync.init({
     server: {
       baseDir: "./dist",
     },
   });
+
   watch(paths.styles.src, { ignoreInitial: true }, style);
-  watch(paths.haml.src, { ignoreInitial: true }, views);
+  watch(paths.views.src, { ignoreInitial: true }, views);
   watch(paths.images.src, { ignoreInitial: true }, images);
   watch(paths.fonts.src, { ignoreInitial: true }, fonts);
   watch(paths.js.src, { ignoreInitial: true }, scripts);
 
-  watch(paths.styles.dest, (done) => {
+  watch(paths.views.dest, (done) => {
     browserSync.reload();
     done();
   });
-  watch(paths.haml.dest, (done) => {
+  watch(paths.styles.dest, (done) => {
     browserSync.reload();
     done();
   });

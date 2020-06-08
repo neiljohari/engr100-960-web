@@ -15,8 +15,11 @@
     "gulp": "^4.0.2",
     "gulp-minify": "^3.1.0",
     "gulp-postcss": "^8.0.0",
-    "gulp-ruby-haml": "0.0.9",
     "gulp-sass": "^4.1.0",
     "gulp-sourcemaps": "^2.6.5"
+  },
+  "dependencies": {
+    "gulp-filter": "^6.0.0",
+    "gulp-pug": "^4.0.1"
   }
 }
