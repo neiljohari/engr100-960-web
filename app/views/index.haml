@@ -6,27 +6,46 @@
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
     %meta{:content => "ie=edge", "http-equiv" => "X-UA-Compatible"}/
     %title ENGR100-960
+    %link{:href => "assets/css/reset.css", :rel => "stylesheet"}/
     %link{:href => "assets/css/main.css", :rel => "stylesheet"}/
   %body
-    .container
-      %header
-        %span.brand Weather Stations
-        %nav
-          %a.hide-desktop{:href => "#"}
-            %img#menu.menu{:src => "assets/images/ham.svg"}/
-          %ul#nav.show-desktop.hide-mobile
-            %li
-              %a{:href => "#"} Home
-            %li
-              %a{:href => "#"} Courses
-      %section.hero
-        %h1 Get Your First Taste of Engineering
-        %p.subhead Design a Weather Station. Solve Real Challenges.
-        .hero-button
-          %a{:href => "#"} Register Now
-      .marketing
-        %ul
-      %footer
-        .footer-container
-          .container
-            %a.brand{:href => "#"} Weather Stations
+    .content
+      .container
+        %header
+          %span.brand Weather Stations
+          %nav
+            %a.hide-desktop{:href => "#"}
+              %img#menu.menu{:src => "assets/images/ham.svg"}/
+            %ul#nav.show-desktop.hide-mobile
+              %li
+                %a{:href => "#"} Home
+              %li
+                %a{:href => "#"} Courses
+        %section.hero
+          %h1 Get Your First Taste of Engineering
+          %p.subhead Design a Weather Station. Solve Real Challenges.
+          .hero-button
+            %a{:href => "#"} Register Now
+      .container
+        .marketing
+          %ul
+            %li 
+              .marketing-icon
+                %img{src: "assets/images/puzzle.svg"}
+              %p.marketing-head Problem Solving
+              %p.marketing-text Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+            %li 
+              .marketing-icon
+                %img{src: "assets/images/internet.svg"}
+              %p.marketing-head Technical Communication
+              %p.marketing-text Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+            %li 
+              .marketing-icon
+                %img{src: "assets/images/sport-team.svg"}
+              %p.marketing-head Teamwork
+              %p.marketing-text Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+    %footer
+      .footer-container
+        .container
+          %a.brand{:href => "#"} Weather Stations
+          %img{src: "assets/images/block_m.svg"}

@@ -1,8 +1,19 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:200,300,400,600');
 
+$orange: #FE5F55;
+$light-purple: #F7F7FF;
+$blue-grey: #495867;
+
 body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
 }
 
 ul {
@@ -12,7 +23,7 @@ ul {
 }
 
 p {
-  font-size: .9em;
+  font-size: 1em;
   line-height: 1.6em;
 }
 
@@ -32,12 +43,21 @@ header {
   justify-content: space-between;
 }
 
+footer {
+  flex-shrink: 0;
+}
+
 .hide-mobile {
   display: none;
 }
 
 .menu {
   width: 25px;
+}
+
+header nav ul {
+  display: flex;
+  justify-content: space-between;
 }
 
 .container {
@@ -52,15 +72,14 @@ header {
 }
 
 .hero {
-  margin: 2.2em 0;
+  margin: 2.5em 0;
   h1 {
-    white-space: nowrap;
-    font-size: 1.2em;
+    font-size: 1.75em;
     font-weight: normal;
-    margin-bottom: 1.1;
+    margin: 1.1em 0;
   }
   .subhead {
-    font-size: .8em;
+    font-size: .9em;
     font-weight: lighter;
   }
 
@@ -70,16 +89,72 @@ header {
   margin: 2.2em 0;
   a {
     text-decoration: none;
-    background-color: #FE5F55;
+    background-color: $orange;
     display: inline-block;
-    padding: .3em 5em;
+    padding: .3em 4.5em;
     white-space: nowrap;
     color: white;
     text-transform: uppercase;
     border-radius: 34px;
     font-weight: bold;
-    font-size: .8em;
+    font-size: 1em;
   }
+}
+
+.marketing {
+  margin-top: -3.25em;
+
+  li {
+    margin: 3.5em 1em;
+  }
+
+  .marketing-head {
+    font-size: 1.1em;
+    margin-top: 2em;
+  }
+
+  .marketing-text {
+    font-size: .9em;
+  }
+
+  .marketing-icon {
+    position: relative;
+
+    &::before {
+      background: $light-purple;
+      border-radius: 100%;
+      content: '';
+      height: 100px;
+      margin: -1.3em 0 0 -1.4em;
+      position: absolute;
+      width: 100px;
+      z-index: -1;
+    }
+  }
+}
+
+
+.footer-container {
+  width: 100%;
+  background: $blue-grey;
+  color: white;
+  padding: 1em 0;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
+  img {
+    height: 1.5em;
+  }
+
 }
 
 @media only screen and (min-width: 650px) {
@@ -93,21 +168,38 @@ header {
 
   .hero  {
     h1 {
-      font-size: 2em;
+      font-size: 2.5em;
     }
     .subhead {
-      font-size: 1em;
+      font-size: 1.25em;
     }
   }
 
-  .hero-button a {
-    font-size: 1em;
+  .hero-button {
+    margin: 2.7em 0 0 0;
+    a {
+      font-size: 1.25em;
+    }
+  }
+
+  .marketing {
+    ul {
+      display: flex;
+    }
+    .marketing-head {
+      font-size: 1.25em;
+      margin: 2em 0 1.1em 0;
+    }
+
+    .marketing-text {
+      font-size: 1em;
+    }
   }
 }
 
 @media only screen and (min-width: 1024px)  {
   .show-desktop {
-      display: block;
+      display: flex;
       margin: 0 auto 13% auto;
   }
 
@@ -120,18 +212,25 @@ header {
   }
 
   .hero {
-    margin: 3.5em 0;
     h1 {
       font-size: 2.6em;
-      margin: .4em 0;
     }
     .subhead {
-      font-size: 1em;
+      font-size: 1.5em;
     }
   }
 
   .hero-button {
-    font-size: 1em;
-    margin: 1.5em;
+    font-size: 1.25em;
+  }
+
+  .marketing {
+    .marketing-head {
+      font-size: 1.25em;
+    }
+
+    .marketing-text {
+      font-size: 1em;
+    }
   }
 }
