@@ -34,8 +34,10 @@ nav ul li a {
   width: 100%;
 }
 
-nav ul li a:hover {
-  font-weight: bold;
+nav ul li a {
+  &:hover, &.active {
+    font-weight: bold;
+  }
 }
 
 header {

@@ -17,7 +17,7 @@ var paths = {
     dest: "./dist/assets/css",
   },
   views: {
-    src: ["./app/views/*.pug"],
+    src: ["./app/views/**/*.pug"],
     dest: "./dist",
   },
   js: {
@@ -39,11 +39,11 @@ function views() {
     .pipe(pug())
     .pipe(
       filter(function (file) {
-        // Added views to exclude folder from building.
         return (
           !/\/_/.test(file.path) &&
           !/^_/.test(file.relative) &&
-          !/views/.test(file.relative)
+          !/views/.test(file.relative) &&
+          !/layouts/.test(file.relative)
         );
       })
     )
