@@ -6,6 +6,8 @@
         img.menu#menu(src="assets/images/ham.svg")
       ul.show-desktop.hide-mobile#nav
         li
-          a(href="index.html") Home
+          a(href="index.html", class=(path === "index" ? "active" : undefined)) Home
         li
-          a(href="calendar.html") Course
+          - var course_pages_paths = ["calendar", "labs", "feedback", "contact", "tools"]
+          a(href="calendar.html", class=(course_pages_paths.includes(path) ? "active" :
+          undefined)) Course

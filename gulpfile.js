@@ -7,7 +7,8 @@ var sass = require("gulp-sass"),
   sourcemaps = require("gulp-sourcemaps"),
   pug = require("gulp-pug"),
   minify = require("gulp-minify"),
-  filter = require('gulp-filter');
+  filter = require('gulp-filter'),
+  data = require('gulp-data');
 
 var browserSync = require("browser-sync").create();
 
@@ -36,6 +37,9 @@ var paths = {
 
 function views() {
   return src(paths.views.src)
+    .pipe(data(function(file) {
+      return {path: file.stem}
+    }))
     .pipe(pug())
     .pipe(
       filter(function (file) {
