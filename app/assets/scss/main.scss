@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:200,300,400,600');
+@import "colors.scss";
 
-$orange: #FE5F55;
-$light-purple: #F7F7FF;
-$blue-grey: #495867;
 
 body {
   margin: 0;
@@ -32,9 +30,6 @@ nav ul li a {
   text-decoration: none;
   padding: 1em 2em;
   width: 100%;
-}
-
-nav ul li a {
   &:hover, &.active {
     font-weight: bold;
   }
@@ -57,6 +52,12 @@ footer {
   width: 25px;
 }
 
+
+header nav {
+  display: flex;
+  align-items: center;
+}
+
 header nav ul {
   display: flex;
   justify-content: space-between;
@@ -69,7 +70,7 @@ header nav ul {
 
 .brand {
   text-transform: uppercase;
-  font-size: 1em;
+  font-size: 1.5em;
   white-space: nowrap;
 }
 
@@ -163,7 +164,7 @@ header nav ul {
   }
 
   .brand {
-    font-size: 1.1em;
+    font-size: 1.75em;
   }
 
   .hero  {
@@ -200,7 +201,6 @@ header nav ul {
 @media only screen and (min-width: 1024px)  {
   .show-desktop {
       display: flex;
-      margin: 0 auto 13% auto;
   }
 
   .hide-desktop {
@@ -208,7 +208,7 @@ header nav ul {
   }
 
   .brand {
-    font-size: 1.3em;
+    font-size: 1.75em;
   }
 
   .hero {
