@@ -10,47 +10,57 @@ block content
       ul
         li
           .card(onclick="openCard(event, 'Build')")#Build
-            .card-head 
-              | Build a Weather Station
-            .card-indicator
+            img(src="assets/images/workbench.png")
+            .container
+              .card-head 
+                | Build a Weather Station
+              .card-indicator
+              .card-body
+                | Each student is shipped supplies to create a weather station of
+                their own. Explore introductory electronics with Arduino and
+                introductory programming with C, MATLAB, and Python. Build the
+                skills and learn the technologies that are foundational to being
+                an engineer. 
+        li
+          .card(onclick="openCard(event, 'Analyze')")#Analyze
+            img(src="assets/images/global_data.png")
+            .container
+              .card-head 
+                | Analyze Global Data
+              .card-indicator
+              .card-body.
+                Students can enroll whether they're on campus on entirely remote.
+                Work with your classmates to share broad datasets and learn how
+                engineering translates across countries, languages, and cultures.
+        li
+          .card(onclick="openCard(event, 'Identify')")#Identify
+            img(src="assets/images/antarctic.png")
+            .container
+              .card-head 
+                | Identify a Related Problem 
+              .card-indicator
+              .card-body.
+                The second half of your semester centers around applying your technical skills
+                to real world problems. Choose from multiple scenarios based in engineering,
+                scientific, or business settings with clients including NASA, Amazon, the
+                National Park Service, Refraction AI, Weather Underground, and more! 
+        li
+          .card(onclick="openCard(event, 'Create')")#Create
+            img(src="assets/images/solidworks.png")
+            .container
+              .card-head 
+                | Create your Own Solution 
+              .card-indicator
+              .card-body.
+                Work with your team and use your newly developed skills to design
+                a solution to real world problems. 
+      .marketing-peek
+        .card.active
+          img(src="assets/images/workbench.png")
+          .container
             .card-body.
               Each student is shipped supplies to create a weather station of
               their own. Explore introductory electronics with Arduino and
               introductory programming with C, MATLAB, and Python. Build the
               skills and learn the technologies that are foundational to being
               an engineer. 
-        li
-          .card(onclick="openCard(event, 'Analyze')")#Analyze
-            .card-head 
-              | Analyze Global Data
-            .card-indicator
-            .card-body.
-              Students can enroll whether they're on campus on entirely remote.
-              Work with your classmates to share broad datasets and learn how
-              engineering translates across countries, languages, and cultures.
-        li
-          .card(onclick="openCard(event, 'Identify')")#Identify
-            .card-head 
-              | Identify a Related Problem 
-            .card-indicator
-            .card-body.
-              The second half of your semester centers around applying your technical skills
-              to real world problems. Choose from multiple scenarios based in engineering,
-              scientific, or business settings with clients including NASA, Amazon, the
-              National Park Service, Refraction AI, Weather Underground, and more! 
-        li
-          .card(onclick="openCard(event, 'Create')")#Create
-            .card-head 
-              | Create your Own Solution 
-            .card-indicator
-            .card-body.
-              Work with your team and use your newly developed skills to design
-              a solution to real world problems. 
-      .marketing-peek
-        .card.active
-          .card-body.
-            Each student is shipped supplies to create a weather station of
-            their own. Explore introductory electronics with Arduino and
-            introductory programming with C, MATLAB, and Python. Build the
-            skills and learn the technologies that are foundational to being
-            an engineer. 

@@ -107,7 +107,9 @@ header nav ul {
 }
 
 .card {
-  padding: 1em 2em;
+  //padding: 1em 2em;
+
+
   margin: 2.2em 1em;
   box-shadow: 0px 0px 9px 5px rgba(235,235,235,1);
 
@@ -130,6 +132,12 @@ header nav ul {
   .card {
     cursor: pointer;
 
+    img {
+      visibility: hidden;
+      height: 0;
+      transition: all 0.3s;
+    }
+
     .card-indicator {
       margin: .75em auto;
       color: grey;
@@ -145,7 +153,6 @@ header nav ul {
       display: inline-block;
       padding: 3px;
       transform: rotate(45deg);
-      -webkit-transform: rotate(45deg);
 
       &.hidden {
         visibility: hidden;
@@ -169,6 +176,12 @@ header nav ul {
       line-height: 2em;
     }
     &.active {
+      img {
+        visibility: visible;
+        width: 100%;
+        height: auto;
+      }
+
       .card-body {
         visibility: visible;
         opacity: 1;
@@ -275,6 +288,11 @@ header nav ul {
         margin: 0;
       }
       &.active {
+        img {
+          visibility: hidden;
+          width: 0;
+          height: 0;
+        }
         .card-head {
           font-weight: bold;
         }
@@ -291,6 +309,11 @@ header nav ul {
 
       .card {
         &.active {
+          img {
+            visibility: visible;
+            width: 100%;
+            height: auto;
+          }
           .card-body {
             visibility: visible;
             opacity: 1;
@@ -301,7 +324,5 @@ header nav ul {
       }
     }
   }
-
-
 
 }
