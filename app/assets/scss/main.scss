@@ -80,7 +80,7 @@ header nav ul {
   }
 
   .tagline {
-    font-size: 0.5em;
+    font-size: 0.45em;
   }
 }
 
@@ -249,6 +249,10 @@ header nav ul {
 
   .brand {
     font-size: 1.75em;
+    .tagline {
+      font-size: 0.65em;
+      font-weight: lighter;
+    }
   }
 
   .hero  {
@@ -279,6 +283,9 @@ header nav ul {
 
   .brand {
     font-size: 1.75em;
+    .tagline {
+      font-size: 0.8em;
+    }
   }
 
   .hero {
