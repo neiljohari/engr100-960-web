@@ -1,4 +1,9 @@
-function openCard(event, cardId) {
+// Load first card automatically
+document.addEventListener("DOMContentLoaded", function() {
+  openCard(document.querySelector('.marketing-cards > ul > li > .card').id);
+});
+
+function openCard(cardId) {
 
   card = document.getElementById(cardId);
 
