@@ -8,7 +8,8 @@ var sass = require("gulp-sass"),
   pug = require("gulp-pug"),
   minify = require("gulp-minify"),
   filter = require('gulp-filter'),
-  data = require('gulp-data');
+  data = require('gulp-data'),
+  ghPages = require("gulp-gh-pages");
 
 var browserSync = require("browser-sync").create();
 
@@ -84,6 +85,7 @@ exports.views = views;
 exports.images = images;
 exports.fonts = fonts;
 exports.scripts = scripts;
+exports.deploy = () => src('./dist/**/*').pipe(ghPages());
 exports.default = () => {
 
   browserSync.init({
