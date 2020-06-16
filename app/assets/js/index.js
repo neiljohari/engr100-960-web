@@ -1,7 +1,7 @@
 // Load first card automatically for desktop
 document.addEventListener("DOMContentLoaded", function() {
   if(window.innerWidth > 1024) {
-    openCard(document.querySelector('.marketing-cards > ul > li > .card').id);
+    openCard(document.querySelector('.marketing-cards > ul > li > .card').id, true);
   }
 });
 
@@ -32,16 +32,24 @@ window.addEventListener('resize', debounce(function() {
   cards = document.querySelectorAll('.marketing-cards > ul .card');
 
   // deactivate all cards
-  for(let i = 0 ; i < cards.length ; ++i) {
-    cards[i].className = cards[i].className.replace(" active", "");
-    if(window.innerWidth < 1024) {
-      // mobile version
+  if(window.innerWidth < 1024) {
+    for(let i = 0 ; i < cards.length ; ++i) {
       cards[i].parentElement.querySelectorAll('.card-indicator')[0].classList.remove('hidden');
     } 
   }
 
   if(window.innerWidth > 1024) {
-    openCard(document.querySelector('.marketing-cards > ul > li > .card').id);
+    // determine which card to carry over to desktop
+    // default to first card
+    desktopCard = document.querySelector('.marketing-cards > ul .card.active') || document.querySelector('.marketing-cards > ul .card');
+
+    // deactivate all cards
+    for(let i = 0 ; i < cards.length ; ++i) {
+      cards[i].className = cards[i].className.replace(" active", "");
+    } 
+
+    // immediately activate the chosen card
+    openCard(desktopCard.id, true);
   }
 
 
@@ -49,7 +57,7 @@ window.addEventListener('resize', debounce(function() {
 
 
 // generic click callback for landing page cards
-function openCard(cardId) {
+function openCard(cardId, immediate = false) {
 
   card = document.getElementById(cardId);
 
@@ -84,18 +92,22 @@ function openCard(cardId) {
     peekImg = peek.querySelector('.card > img');
 
     // fade out
-    peekBody.style.opacity = 0;
-    peekImg.style.opacity = 0;
+    if(!immediate) {
+      peekBody.style.opacity = 0;
+      peekImg.style.opacity = 0;
+    }
 
-    // wait for fade out transition
-    setTimeout(function(){ 
-      // fade in
-      peekBody.innerHTML = card.querySelector(".card-body").innerHTML;
-      peekBody.style.opacity = 1;
+    peekBody.innerHTML = card.querySelector(".card-body").innerHTML;
+    peekImg.src = card.querySelector('img').src;
 
-      peekImg.src = card.querySelector('img').src;
-      peekImg.style.opacity = 1;
-    },300);
+    if(!immediate) {
+      // wait for fade out transition
+      setTimeout(function(){ 
+        // fade in
+        peekBody.style.opacity = 1;
+        peekImg.style.opacity = 1;
+      },300);
+    }
 
   }
 
