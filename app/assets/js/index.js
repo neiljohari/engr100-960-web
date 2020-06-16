@@ -1,8 +1,48 @@
-// Load first card automatically
+// Load first card automatically for desktop
 document.addEventListener("DOMContentLoaded", function() {
-  openCard(document.querySelector('.marketing-cards > ul > li > .card').id);
+  if(window.innerWidth > 1024) {
+    openCard(document.querySelector('.marketing-cards > ul > li > .card').id);
+  }
 });
 
+// prevent rapid refiring of resize event
+const debounce = (func, wait, immediate) => {
+    var timeout;
+    return (...arguments) => {
+        const context = this, args = arguments;
+        const later = function() {
+            timeout = null;
+            if (!immediate) func.apply(context, ...args);
+        };
+        const callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) func.apply(context, args);
+    };
+};
+
+// on resize, ensure cards are collapsed and on desktop the first is shown
+window.addEventListener('resize', debounce(function() {
+  cards = document.querySelectorAll('.marketing-cards > ul .card');
+
+  // deactivate all cards
+  for(let i = 0 ; i < cards.length ; ++i) {
+    cards[i].className = cards[i].className.replace(" active", "");
+    if(window.innerWidth < 1024) {
+      // mobile version
+      cards[i].parentElement.querySelectorAll('.card-indicator')[0].classList.remove('hidden');
+    } 
+  }
+
+  if(window.innerWidth > 1024) {
+    openCard(document.querySelector('.marketing-cards > ul > li > .card').id);
+  }
+
+
+}, 200, false), false);
+
+
+// generic click callback for landing page cards
 function openCard(cardId) {
 
   card = document.getElementById(cardId);
