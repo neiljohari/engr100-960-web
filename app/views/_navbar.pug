@@ -1,13 +1,20 @@
 .container
   header
-    span.brand Weather Stations
+    span.brand 
+      a(href="index.html") Engineering 100
+      .tagline
+        | Assessing Climate and the meteorological Environment
     nav
-      a.hide-desktop(href="#")
-        img.menu#menu(src="assets/images/ham.svg")
-      ul.show-desktop.hide-mobile#nav
-        li
-          a(href="index.html", class=(path === "index" ? "active" : undefined)) Home
-        li
-          - var course_pages_paths = ["calendar", "labs", "feedback", "contact", "tools"]
-          a(href="calendar.html", class=(course_pages_paths.includes(path) ? "active" :
-          undefined)) Course
+      ul
+        li.show-desktop.hide-mobile
+          a(href="index.html") Home
+      //-
+        a.hide-desktop(href="#")
+          img.menu#menu(src="assets/images/ham.svg")
+        ul.show-desktop.hide-mobile#nav
+          li
+            a(href="index.html", class=(path === "index" ? "active" : undefined)) Home
+          li
+            - var course_pages_paths = ["calendar", "labs", "feedback", "contact", "tools"]
+            a(href="calendar.html", class=(course_pages_paths.includes(path) ? "active" :
+            undefined)) Course
