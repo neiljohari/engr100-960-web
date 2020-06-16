@@ -3,29 +3,54 @@ extends layouts/main.pug
 block content
   .container
     section.hero
-      h1 Get Your First Taste of Engineering
-      p.subhead Design a Weather Station. Solve Real Challenges.
-      .hero-button
-        a(href='#') Register Now
+      h1 join us at michigan engineering fall 2020
+      p.subhead Register on wolverine access now
   .container
-    .marketing
+    .marketing-cards
       ul
         li
-          .marketing-icon
-            img(src='assets/images/puzzle.svg')
-          p.marketing-head Problem Solving
-          p.marketing-text.
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+          .card(onclick="openCard(event, 'Build')")#Build
+            .card-head 
+              | Build a Weather Station
+            .card-indicator
+            .card-body.
+              Each student is shipped supplies to create a weather station of
+              their own. Explore introductory electronics with Arduino and
+              introductory programming with C, MATLAB, and Python. Build the
+              skills and learn the technologies that are foundational to being
+              an engineer. 
         li
-          .marketing-icon
-            img(src='assets/images/internet.svg')
-          p.marketing-head Technical Communication
-          p.marketing-text.
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+          .card(onclick="openCard(event, 'Analyze')")#Analyze
+            .card-head 
+              | Analyze Global Data
+            .card-indicator
+            .card-body.
+              Students can enroll whether they're on campus on entirely remote.
+              Work with your classmates to share broad datasets and learn how
+              engineering translates across countries, languages, and cultures.
         li
-          .marketing-icon
-            img(src='assets/images/sport-team.svg')
-          p.marketing-head Teamwork
-          p.marketing-text.
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-            accusantium doloremque
+          .card(onclick="openCard(event, 'Identify')")#Identify
+            .card-head 
+              | Identify a Related Problem 
+            .card-indicator
+            .card-body.
+              The second half of your semester centers around applying your technical skills
+              to real world problems. Choose from multiple scenarios based in engineering,
+              scientific, or business settings with clients including NASA, Amazon, the
+              National Park Service, Refraction AI, Weather Underground, and more! 
+        li
+          .card(onclick="openCard(event, 'Create')")#Create
+            .card-head 
+              | Create your Own Solution 
+            .card-indicator
+            .card-body.
+              Work with your team and use your newly developed skills to design
+              a solution to real world problems. 
+      .marketing-peek
+        .card.active
+          .card-body.
+            Each student is shipped supplies to create a weather station of
+            their own. Explore introductory electronics with Arduino and
+            introductory programming with C, MATLAB, and Python. Build the
+            skills and learn the technologies that are foundational to being
+            an engineer. 

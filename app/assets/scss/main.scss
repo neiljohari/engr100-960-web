@@ -80,10 +80,12 @@ header nav ul {
     font-size: 1.75em;
     font-weight: normal;
     margin: 1.1em 0;
+    text-transform: capitalize;
   }
   .subhead {
     font-size: .9em;
     font-weight: lighter;
+    text-transform: capitalize;
   }
 
 }
@@ -104,32 +106,86 @@ header nav ul {
   }
 }
 
-.marketing {
-  li {
-    margin: 3.5em 1em;
-  }
+.card {
+  padding: 1em 2em;
+  margin: 2.2em 1em;
+  box-shadow: 0px 0px 9px 5px rgba(235,235,235,1);
 
-  .marketing-head {
+  .card-head {
+    margin: .75em auto;
     font-size: 1.1em;
-    margin-top: 2em;
   }
 
-  .marketing-text {
-    font-size: .9em;
+  .card-body {
+      margin: .75em auto;
+  }
+}
+
+
+
+.marketing-cards {
+  display: flex;
+
+  margin-top: -2.5em;
+  .card {
+    cursor: pointer;
+
+    .card-indicator {
+      margin: .75em auto;
+      color: grey;
+      
+      // Visibility hacks for card reveal animation
+      visibility: visible;
+      opacity: 1;
+      height: auto;
+
+      // Create a down arrow via pure CSS
+      border: solid black;
+      border-width: 0 3px 3px 0;
+      display: inline-block;
+      padding: 3px;
+      transform: rotate(45deg);
+      -webkit-transform: rotate(45deg);
+
+      &.hidden {
+        visibility: hidden;
+        opacity: 0;
+        height: 0;
+        margin: 0;
+        transition: all 0.3s;
+      }
+    }
+
+    .card-body {
+      // Visibility hacks for card reveal animation
+      visibility: hidden;
+      opacity: 0;
+      height: 0;
+      margin: 0;
+
+      // Smooth card animations
+      transition: all 0.3s;
+
+      line-height: 2em;
+    }
+    &.active {
+      .card-body {
+        visibility: visible;
+        opacity: 1;
+        height: auto;
+        margin: .75em auto;
+      }
+    }
   }
 
-  .marketing-icon {
-    position: relative;
+  .marketing-peek {
+    flex: 1 0 50%;
+    display: none;
 
-    &::before {
-      background: $light-purple;
-      border-radius: 100%;
-      content: '';
-      height: 100px;
-      margin: -1.3em 0 0 -1.4em;
-      position: absolute;
-      width: 100px;
-      z-index: -1;
+    .card {
+      .card-body {
+        text-align: left;
+      }
     }
   }
 }
@@ -182,20 +238,6 @@ header nav ul {
       font-size: 1.25em;
     }
   }
-
-  .marketing {
-    ul {
-      display: flex;
-    }
-    .marketing-head {
-      font-size: 1.25em;
-      margin: 2em 0 1.1em 0;
-    }
-
-    .marketing-text {
-      font-size: 1em;
-    }
-  }
 }
 
 @media only screen and (min-width: 1024px)  {
@@ -223,14 +265,43 @@ header nav ul {
   .hero-button {
     font-size: 1.25em;
   }
-
-  .marketing {
-    .marketing-head {
-      font-size: 1.25em;
+  .marketing-cards {
+    flex-direction: row;
+    .card {
+      .card-indicator {
+        visibility: hidden;
+        opacity: 0;
+        height: 0;
+        margin: 0;
+      }
+      &.active {
+        .card-head {
+          font-weight: bold;
+        }
+        .card-body {
+          visibility: hidden;
+          opacity: 0;
+          height: 0;
+          margin: 0;
+        }
+      }
     }
+    .marketing-peek {
+      display: block;
 
-    .marketing-text {
-      font-size: 1em;
+      .card {
+        &.active {
+          .card-body {
+            visibility: visible;
+            opacity: 1;
+            height: auto;
+            margin: auto;
+          }
+        }
+      }
     }
   }
+
+
+
 }
