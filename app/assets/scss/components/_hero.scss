@@ -1,0 +1,62 @@
+.hero {
+  h1 {
+    font-size: 1.75em;
+    font-weight: normal;
+    margin: 1.1em 0;
+    text-transform: capitalize;
+  }
+  .subhead {
+    font-size: .9em;
+    font-weight: lighter;
+    text-transform: capitalize;
+  }
+
+}
+
+.hero-button {
+  a {
+    text-decoration: none;
+    background-color: $orange;
+    display: inline-block;
+    padding: .3em 4.5em;
+    white-space: nowrap;
+    color: white;
+    text-transform: uppercase;
+    border-radius: 34px;
+    font-weight: bold;
+    font-size: 1em;
+  }
+}
+
+@media only screen and (min-width: 650px) {
+  .hero  {
+    h1 {
+      font-size: 2.5em;
+    }
+    .subhead {
+      font-size: 1.25em;
+    }
+  }
+
+  .hero-button {
+    a {
+      font-size: 1.25em;
+    }
+  }
+}
+
+@media only screen and (min-width: 1024px)  {
+  .hero {
+    h1 {
+      font-size: 2.6em;
+    }
+    .subhead {
+      font-size: 1.5em;
+    }
+  }
+
+  .hero-button {
+    font-size: 1.25em;
+  }
+}
+

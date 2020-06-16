@@ -1,0 +1,27 @@
+/*
+  SCSS for card component
+*/
+
+.card {
+  // Prevent user selection 
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: transparent;
+
+
+  margin: 2.2em 1em;
+
+  box-shadow: 0px 0px 9px 5px rgba(235,235,235,1);
+  border-radius: 5px;
+
+  .card-head {
+    margin: .75em auto;
+    font-size: 1.1em;
+  }
+
+  .card-body {
+    margin: .75em auto;
+  }
+}
+
+

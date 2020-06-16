@@ -1,0 +1,28 @@
+footer {
+  flex-shrink: 0;
+}
+
+.footer-container {
+  width: 100%;
+  background: $blue-grey;
+  color: white;
+  padding: 1em 0;
+  font-size: .75em;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
+  img {
+    height: 1.5em;
+  }
+
+}
+
