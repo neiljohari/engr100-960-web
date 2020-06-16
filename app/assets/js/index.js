@@ -21,8 +21,14 @@ const debounce = (func, wait, immediate) => {
     };
 };
 
+
 // on resize, ensure cards are collapsed and on desktop the first is shown
+let priorWidth = window.innerWidth;
 window.addEventListener('resize', debounce(function() {
+  // prevent navbar hide/show on iOS from causing cards to collapse
+  if(window.innerWidth == priorWidth) return;
+  priorWidth = window.innerWidth;
+
   cards = document.querySelectorAll('.marketing-cards > ul .card');
 
   // deactivate all cards
@@ -76,8 +82,6 @@ function openCard(cardId) {
 
 
     peekImg = peek.querySelector('.card > img');
-
-    console.log(peekImg);
 
     // fade out
     peekBody.style.opacity = 0;
