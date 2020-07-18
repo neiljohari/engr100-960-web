@@ -12,6 +12,8 @@
 
   $root: &;
 
+  margin-right: $spacer * 2;
+
   // Rounded top corners to fit with card, and responsive
   &_image {
     transition: max-height 0.15s ease-out;

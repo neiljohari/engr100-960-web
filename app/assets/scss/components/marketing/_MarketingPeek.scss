@@ -1,10 +1,12 @@
-@import "../../mixins/cards";
-
 .MarketingPeek {
   @include card;
 
   // Hide on mobile
   display: none;
+
+  &_image {
+    @include border-top-radius;
+  }
 
   &_body {
     text-align: left;

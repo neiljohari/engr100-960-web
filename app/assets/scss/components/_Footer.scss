@@ -4,7 +4,7 @@
   background: $blue-grey;
   color: white;
   padding: 1em 0;
-  font-size: 0.75em;
+  font-size: $font-size-base * 0.75;
 
   &_container {
     @include container;
@@ -21,7 +21,7 @@
   &_brand {
     text-decoration: none;
     color: white;
-    font-size: 1.75em;
+    font-size: $h4-font-size;
     text-transform: uppercase;
   }
 }

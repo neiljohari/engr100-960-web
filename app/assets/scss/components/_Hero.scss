@@ -1,15 +1,16 @@
 .Hero {
   text-align: center;
+  margin: $spacer * 4 0;
 
   &_text {
-    font-size: 1.75em;
+    font-size: $h3-font-size;
     font-weight: normal;
-    margin: 1.1em 0;
+    margin-bottom: $spacer * 2;
     text-transform: capitalize;
   }
 
   &_subtext {
-    font-size: 0.9em;
+    font-size: $font-size-base * 0.9;
     font-weight: lighter;
     text-transform: capitalize;
   }
@@ -18,21 +19,11 @@
 @media only screen and (min-width: 650px) {
   .Hero {
     &_text {
-      font-size: 2.5em;
+      font-size: $h1-font-size;
     }
     &_subtext {
-      font-size: 1.25em;
+      font-size: $h5-font-size;
     }
   }
 }
 
-@media only screen and (min-width: 1024px) {
-  .Hero {
-    &_text {
-      font-size: 2.6em;
-    }
-    &_subtext {
-      font-size: 1.5em;
-    }
-  }
-}

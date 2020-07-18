@@ -6,13 +6,13 @@
     @include reset-link;
 
     text-transform: uppercase;
-    font-size: 1.5em;
+    font-size: $h4-font-size;
     white-space: nowrap;
     text-align: left;
   }
 
   &_tagline {
-    font-size: 0.65em;
+    font-size: $font-size-base * 0.65;
     text-transform: uppercase;
   }
 }
@@ -20,10 +20,10 @@
 @media only screen and (min-width: 650px) {
   .Navbar {
     &_brand {
-      font-size: 1.75em;
+      font-size: $h3-font-size;
     }
     &_tagline {
-      font-size: 1em;
+      font-size: $font-size-base;
       font-weight: lighter;
     }
   }
@@ -32,10 +32,10 @@
 @media only screen and (min-width: 1024px) {
   .Navbar {
     &_brand {
-      font-size: 1.75em;
+      font-size: $h3-font-size;
     }
     &_tagline {
-      font-size: 1.2em;
+      font-size: $h5-font-size;
       font-weight: lighter;
     }
   }
