@@ -1,0 +1,44 @@
+@import "../../mixins/cards";
+
+.MarketingPeek {
+  @include card;
+
+  // Hide on mobile
+  display: none;
+
+  &_body {
+    text-align: left;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .MarketingPeek {
+    flex: 1 0 50%;
+    display: flex; // show again
+    flex-direction: column;
+
+    // Above we disabled all card images and bodies, but on desktop we do want
+    // to show the peek card. This selector is more specific and will allow
+    // just peek to be visible.
+    $root: &;
+
+    &___active {
+      /* stylelint-disable-next-line plugin/selector-bem-pattern */
+      #{$root}_image {
+        visibility: visible;
+        width: 100%;
+        height: auto;
+        transition: all 0.3s;
+      }
+
+      /* stylelint-disable-next-line plugin/selector-bem-pattern */
+      #{$root}_body {
+        visibility: visible;
+        opacity: 1;
+        height: auto;
+        margin: auto;
+        transition: all 0.3s;
+      }
+    }
+  }
+}

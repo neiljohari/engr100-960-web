@@ -1,0 +1,144 @@
+@import "../../mixins/cards";
+
+/* 
+  SCSS for marketing cards components
+
+  Provides basic styling and functionality
+*/
+
+/* BEGIN MARKETING CARDS - MOBILE */
+.MarketingCard {
+  @include card;
+
+  $root: &;
+
+  // Rounded top corners to fit with card, and responsive
+  &_image {
+    transition: max-height 0.15s ease-out;
+    width: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+    // Hide the card image on mobile
+    max-height: 0;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  // Create a down arrow via pure CSS
+  &_indicator {
+    color: grey;
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+
+    // Position css arrow and set it to visible
+    margin: 0.75em auto;
+    // Visibility hacks for card reveal animation
+    visibility: visible;
+    opacity: 1;
+    height: auto;
+
+    // Indicator visibility
+    &___hidden {
+      visibility: hidden;
+      opacity: 0;
+      height: 0;
+      margin: 0;
+      transition: all 0.15s;
+    }
+  }
+
+  &_text {
+    line-height: 2em;
+    // Begin cards as collapsed
+    visibility: hidden;
+    opacity: 0;
+    max-height: 0;
+    margin: 0;
+
+    // Smooth card animations for collapsing
+    transition: all 0.15s;
+    transition: max-height 0.15s ease-out;
+  }
+
+  // When activated, add animation to image
+  // On mobile, this means the card text is visible
+  &___active {
+    /* stylelint-disable-next-line plugin/selector-bem-pattern */
+    #{$root}_image {
+      transition: max-height 0.15s ease-in;
+      // Make this image visible
+      max-height: 300px;
+    }
+
+    // Open the card text
+    /* stylelint-disable-next-line plugin/selector-bem-pattern */
+    #{$root}_text {
+      visibility: visible;
+      opacity: 1;
+      max-height: 300px;
+      transition: max-height 0.15s ease-in;
+    }
+  }
+}
+
+/* END MARKETING CARDS - MOBILE */
+
+/* BEGIN MARKETING CARDS - DESKTOP */
+@media only screen and (min-width: 1024px) {
+  .MarketingCard {
+    $root: &;
+
+    // Bold card head on hover and card selection
+    &:hover {
+      #{$root}_head {
+        font-weight: bold;
+      }
+    }
+
+    // On desktop, we don't need to show the dropdown arrow, card images, card
+    // bodies, etc
+    &_indicator {
+      visibility: hidden;
+      opacity: 0;
+      height: 0;
+      margin: 0;
+    }
+
+    &_image {
+      visibility: hidden;
+      width: 0;
+      height: 0;
+      margin: 0;
+    }
+
+    &_text {
+      visibility: hidden;
+      opacity: 0;
+      height: 0;
+      margin: 0;
+    }
+
+    &___active {
+      /* stylelint-disable-next-line plugin/selector-bem-pattern */
+      #{$root}_head {
+        font-weight: bold;
+      }
+
+      /* stylelint-disable-next-line plugin/selector-bem-pattern */
+      #{$root}_text {
+        visibility: hidden;
+        opacity: 0;
+        height: 0;
+        margin: 0;
+      }
+    }
+  }
+}
+
+/* END MARKETING CARDS - DESKTOP */

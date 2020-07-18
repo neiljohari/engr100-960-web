@@ -1,0 +1,19 @@
+.NavLinks {
+  display: flex;
+  align-items: center;
+  &_list {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &_link {
+    @include reset-link;
+
+    padding: 1em 2em;
+    width: 100%;
+    &:hover,
+    &___active {
+      font-weight: bold;
+    }
+  }
+}

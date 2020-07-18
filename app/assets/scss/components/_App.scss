@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:200,300,400,600");
+
+.App {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
+  font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont,
+    "Avenir Next", "Avenir", "Segoe UI", "Lucida Grande", "Helvetica Neue",
+    "Helvetica", "Fira Sans", "Roboto", "Noto", "Droid Sans", "Cantarell",
+    "Oxygen", "Ubuntu", "Franklin Gothic Medium", "Century Gothic",
+    "Liberation Sans", sans-serif;
+
+  &_content {
+    flex: 1;
+  }
+}

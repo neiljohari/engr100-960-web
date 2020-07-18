@@ -1,0 +1,42 @@
+.Navbar {
+  display: flex;
+  justify-content: space-between;
+
+  &_brand {
+    @include reset-link;
+
+    text-transform: uppercase;
+    font-size: 1.5em;
+    white-space: nowrap;
+    text-align: left;
+  }
+
+  &_tagline {
+    font-size: 0.65em;
+    text-transform: uppercase;
+  }
+}
+
+@media only screen and (min-width: 650px) {
+  .Navbar {
+    &_brand {
+      font-size: 1.75em;
+    }
+    &_tagline {
+      font-size: 1em;
+      font-weight: lighter;
+    }
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .Navbar {
+    &_brand {
+      font-size: 1.75em;
+    }
+    &_tagline {
+      font-size: 1.2em;
+      font-weight: lighter;
+    }
+  }
+}

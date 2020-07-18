@@ -1,0 +1,4 @@
+**/*.js
+app/assets/scss/mixins/**
+app/assets/scss/global-styles/**
+

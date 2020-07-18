@@ -1,1 +1,90 @@
-document.addEventListener("DOMContentLoaded",function(){window.innerWidth>1024&&openCard(document.querySelector(".marketing-cards > ul > li > .card").id,!0)});const debounce=(e,r,t)=>{var d;return(...arguments)=>{const c=this,a=arguments,n=t&&!d;clearTimeout(d),d=setTimeout(function(){d=null,t||e.apply(c,...a)},r),n&&e.apply(c,a)}};let priorWidth=window.innerWidth;function openCard(e,r=!1){if(card=document.getElementById(e),window.innerWidth<1024)card.parentElement.querySelectorAll(".card-indicator")[0].classList.toggle("hidden");else{card.classList.remove("bounce"),card.offsetWidth=card.offsetWidth,card.classList.add("bounce"),cards=document.querySelectorAll(".marketing-cards > ul .card");for(let e=0;e<cards.length;++e)cards[e].className=cards[e].className.replace(" active","");peek=document.getElementsByClassName("marketing-peek")[0],peekBody=peek.querySelector(".card > .container > .card-body"),peekImg=peek.querySelector(".card > img"),r||(peekBody.style.opacity=0,peekImg.style.opacity=0),peekBody.innerHTML=card.querySelector(".card-body").innerHTML,peekImg.src=card.querySelector("img").src,r||setTimeout(function(){peekBody.style.opacity=1,peekImg.style.opacity=1},300)}card.classList.toggle("active")}window.addEventListener("resize",debounce(function(){if(window.innerWidth!=priorWidth){if(priorWidth=window.innerWidth,cards=document.querySelectorAll(".marketing-cards > ul .card"),window.innerWidth<1024)for(let e=0;e<cards.length;++e)cards[e].parentElement.querySelectorAll(".card-indicator")[0].classList.remove("hidden");if(window.innerWidth>1024){desktopCard=document.querySelector(".marketing-cards > ul .card.active")||document.querySelector(".marketing-cards > ul .card");for(let e=0;e<cards.length;++e)cards[e].className=cards[e].className.replace(" active","");openCard(desktopCard.id,!0)}}},200,!1),!1);
+document.addEventListener("DOMContentLoaded", function () {
+  window.innerWidth > 1024 &&
+    openCard(
+      document.querySelector(".MarketingCardDeck .MarketingCard").id,
+      !0
+    );
+});
+const debounce = (e, r, t) => {
+  var a;
+  return (...arguments) => {
+    const d = this,
+      n = arguments,
+      i = t && !a;
+    clearTimeout(a),
+      (a = setTimeout(function () {
+        (a = null), t || e.apply(d, ...n);
+      }, r)),
+      i && e.apply(d, n);
+  };
+};
+let priorWidth = window.innerWidth;
+function openCard(e, r = !1) {
+  if (((card = document.getElementById(e)), window.innerWidth < 1024))
+    card.parentElement
+      .querySelectorAll(".MarketingCard_indicator")[0]
+      .classList.toggle("MarketingCard_indicator___hidden");
+  else {
+    card.classList.remove("bounce"),
+      (card.offsetWidth = card.offsetWidth),
+      card.classList.add("bounce"),
+      (cards = document.querySelectorAll(".MarketingCardDeck .MarketingCard"));
+    for (let e = 0; e < cards.length; ++e)
+      cards[e].className = cards[e].className.replace(
+        " MarketingCard___active",
+        ""
+      );
+    (peek = document.getElementsByClassName("MarketingPeek")[0]),
+      console.log(peek),
+      (peekBody = peek.querySelector(
+        ".MarketingPeek_body .MarketingPeek_text"
+      )),
+      (peekImg = peek.querySelector("img")),
+      r || ((peekBody.style.opacity = 0), (peekImg.style.opacity = 0)),
+      (peekBody.innerHTML = card.querySelector(
+        ".MarketingCard_body .MarketingCard_text"
+      ).innerHTML),
+      (peekImg.src = card.querySelector("img").src),
+      r ||
+        setTimeout(function () {
+          (peekBody.style.opacity = 1), (peekImg.style.opacity = 1);
+        }, 300);
+  }
+  card.classList.toggle("MarketingCard___active");
+}
+window.addEventListener(
+  "resize",
+  debounce(
+    function () {
+      if (window.innerWidth != priorWidth) {
+        if (
+          ((priorWidth = window.innerWidth),
+          (cards = document.querySelectorAll(
+            ".MarketingCardDeck .MarketingCard"
+          )),
+          window.innerWidth < 1024)
+        )
+          for (let e = 0; e < cards.length; ++e)
+            console.log(cards[e]),
+              cards[e].parentElement
+                .querySelectorAll(".MarketingCard_indicator")[0]
+                .classList.remove(".MarketingCard_indicator___hidden");
+        if (window.innerWidth > 1024) {
+          desktopCard =
+            document.querySelector(
+              ".MarketingCardDeck .MarketingCard___active"
+            ) || document.querySelector(".MarketingCardDeck .MarketingCard");
+          for (let e = 0; e < cards.length; ++e)
+            cards[e].className = cards[e].className.replace(
+              " MarketingCard___active",
+              ""
+            );
+          openCard(desktopCard.id, !0);
+        }
+      }
+    },
+    200,
+    !1
+  ),
+  !1
+);
