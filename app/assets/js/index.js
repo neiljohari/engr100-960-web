@@ -40,10 +40,15 @@ window.addEventListener(
       // deactivate all cards
       if (window.innerWidth < 1024) {
         for (let i = 0; i < cards.length; ++i) {
-          console.log(cards[i]);
-          cards[i].parentElement
-            .querySelectorAll(".MarketingCard_indicator")[0]
-            .classList.remove(".MarketingCard_indicator___hidden");
+          console.log(cards[i].classList);
+          if (!cards[i].classList.contains("MarketingCard___active"))
+            cards[i].parentElement
+              .querySelectorAll(".MarketingCard_indicator")[0]
+              .classList.remove("MarketingCard_indicator___hidden");
+          else
+            cards[i].parentElement
+              .querySelectorAll(".MarketingCard_indicator")[0]
+              .classList.add("MarketingCard_indicator___hidden");
         }
       }
 
@@ -106,7 +111,6 @@ function openCard(cardId, immediate = false) {
     }
 
     peek = document.getElementsByClassName("MarketingPeek")[0];
-    console.log(peek);
     peekBody = peek.querySelector(".MarketingPeek_body .MarketingPeek_text");
     peekImg = peek.querySelector("img");
 

@@ -9,13 +9,13 @@ const debounce = (e, r, t) => {
   var a;
   return (...arguments) => {
     const d = this,
-      n = arguments,
-      i = t && !a;
+      i = arguments,
+      n = t && !a;
     clearTimeout(a),
       (a = setTimeout(function () {
-        (a = null), t || e.apply(d, ...n);
+        (a = null), t || e.apply(d, ...i);
       }, r)),
-      i && e.apply(d, n);
+      n && e.apply(d, i);
   };
 };
 let priorWidth = window.innerWidth;
@@ -35,7 +35,6 @@ function openCard(e, r = !1) {
         ""
       );
     (peek = document.getElementsByClassName("MarketingPeek")[0]),
-      console.log(peek),
       (peekBody = peek.querySelector(
         ".MarketingPeek_body .MarketingPeek_text"
       )),
@@ -65,10 +64,14 @@ window.addEventListener(
           window.innerWidth < 1024)
         )
           for (let e = 0; e < cards.length; ++e)
-            console.log(cards[e]),
-              cards[e].parentElement
-                .querySelectorAll(".MarketingCard_indicator")[0]
-                .classList.remove(".MarketingCard_indicator___hidden");
+            console.log(cards[e].classList),
+              cards[e].classList.contains("MarketingCard___active")
+                ? cards[e].parentElement
+                    .querySelectorAll(".MarketingCard_indicator")[0]
+                    .classList.add("MarketingCard_indicator___hidden")
+                : cards[e].parentElement
+                    .querySelectorAll(".MarketingCard_indicator")[0]
+                    .classList.remove("MarketingCard_indicator___hidden");
         if (window.innerWidth > 1024) {
           desktopCard =
             document.querySelector(
