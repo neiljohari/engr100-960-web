@@ -1,14 +1,17 @@
 .Navbar {
-  display: flex;
-  justify-content: space-between;
-
   &_brand {
+    display: flex;
+    width: 100%;
+    flex-flow: column;
+    text-align: left;
+  }
+
+  &_brandLink {
     @include reset-link;
 
     text-transform: uppercase;
     font-size: $h4-font-size;
     white-space: nowrap;
-    text-align: left;
   }
 
   &_tagline {
@@ -19,6 +22,9 @@
 
 @media only screen and (min-width: 650px) {
   .Navbar {
+    display: flex;
+    flex-wrap: nowrap;
+
     &_brand {
       font-size: $h3-font-size;
     }

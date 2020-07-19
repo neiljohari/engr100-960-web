@@ -1,19 +1,90 @@
+/** @define Burger **/
+.Burger {
+  position: absolute !important;
+  z-index: 1;
+  top: 0.8em;
+  right: 1.2em;
+  cursor: pointer;
+  &_bar {
+    width: 35px;
+    height: 5px;
+    background-color: black;
+    margin: 6px 0;
+  }
+}
+
+@media only screen and (min-width: 650px) {
+  .Burger {
+    display: none;
+  }
+}
+
+/** @define NavLinks **/
 .NavLinks {
   display: flex;
   align-items: center;
+  flex-flow: column;
+  margin-top: 0.8em;
+
   &_list {
-    display: flex;
-    justify-content: space-between;
+    display: none;
+    width: 100%;
+    border-top: 1px solid black;
+
+    &___active {
+      display: block;
+    }
+  }
+
+  &_listItem {
+    padding: 1em;
+    text-align: center;
+    border-bottom: 1px solid black;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
   }
 
   &_link {
     @include reset-link;
 
-    padding: 1em 2em;
-    width: 100%;
+    white-space: nowrap;
+    text-decoration: none;
+    color: black;
+    // Increase clickable area
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    padding: 2em;
+    margin: -2em;
+
     &:hover,
     &___active {
       font-weight: bold;
+    }
+  }
+}
+
+@media only screen and (min-width: 650px) {
+  .NavLinks {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 0 auto;
+
+    &_list {
+      border-top: none;
+      display: flex;
+    }
+
+    &_listItem {
+      border: none;
+      padding: 0;
+      margin: 0 2em;
+    }
+
+    &_link {
+      text-decoration: none;
     }
   }
 }

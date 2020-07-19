@@ -1,12 +1,17 @@
 .Container
   header.Navbar
-    span
-      a(href="index.html").Navbar_brand Engineering 100
-      .Navbar_tagline
-        | Assessing Climate & the meteorological Environment
-    nav.NavLinks
-      ul.NavLinks_list
-        li
+    div
+      span.Navbar_brand
+        a(href="index.html").Navbar_brandLink Engineering 100
+        .Navbar_tagline
+          | Assessing Climate & the meteorological Environment
+    a.Burger(onclick='openNav();')
+      .Burger_bar
+      .Burger_bar
+      .Burger_bar
+    nav.NavLinks.NavLinks___active
+      ul.NavLinks_list#navLinksList
+        li.NavLinks_listItem
           a(href="index.html").NavLinks_link Home
       //-
         a.hide-desktop(href="#")
