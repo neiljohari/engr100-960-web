@@ -1,0 +1,15 @@
+.StaffProfileCardDeck {
+  display: flex;
+  flex-flow: column;
+
+  @media only screen and (min-width: 1000px) {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+
+    &_card {
+      margin-bottom: 3%;
+      width: 48%;
+    }
+  }
+}

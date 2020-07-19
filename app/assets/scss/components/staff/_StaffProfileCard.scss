@@ -1,0 +1,43 @@
+.StaffProfileCard {
+  @include card;
+
+  display: flex;
+  flex-direction: row;
+
+  &_imageContainer {
+    order: -1;
+  }
+
+  &_image {
+    @include border-left-radius;
+
+    object-fit: cover;
+    height: 100%;
+    max-height: 190px;
+    width: 190px;
+  }
+
+  &_head {
+    text-align: left;
+    @include heading-fonts;
+  }
+
+  &_pronouns {
+    color: $gray;
+    font-size: $font-size-base * 0.75;
+  }
+
+  &_body {
+    padding: 0.25em 1em;
+  }
+}
+
+/*
+@media only screen and (min-width: 1500px) {
+  .StaffProfileCard {
+    &_image {
+      width: 175px;
+    }
+  }
+}
+*/

@@ -12,7 +12,11 @@
     nav.NavLinks.NavLinks___active
       ul.NavLinks_list#navLinksList
         li.NavLinks_listItem
-          a(href="index.html").NavLinks_link Home
+          a(href="index.html", class=(path === "index" ?
+          "NavLinks_link___active" : undefined)).NavLinks_link Home
+        li.NavLinks_listItem
+          a(href="staff.html", class=(path === "staff" ?
+          "NavLinks_link___active" : undefined)).NavLinks_link Staff
       //-
         a.hide-desktop(href="#")
           img.menu#menu(src="assets/images/ham.svg")

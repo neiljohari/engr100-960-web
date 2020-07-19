@@ -1,0 +1,13 @@
+mixin staff_card(staff)
+  .StaffProfileCard.StaffProfileCardDeck_card
+    .StaffProfileCard_imageContainer
+      img(src=`${staff.image}`).StaffProfileCard_image
+    .StaffProfileCard_bodyContainer
+      .StaffProfileCard_body 
+        .StaffProfileCard_head
+          .StaffProfileCard_name
+            h3= staff.name
+          .StaffProfileCard_pronouns= staff.pronouns
+        .StaffProfileCard_text
+          .StaffProfileCard_email= staff.email
+          .StaffProfileCard_department= staff.department

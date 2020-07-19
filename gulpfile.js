@@ -27,7 +27,7 @@ var paths = {
     dest: "./dist/assets/js",
   },
   images: {
-    src: "./app/assets/images/*",
+    src: "./app/assets/images/**/*",
     dest: "./dist/assets/images",
   },
   fonts: {

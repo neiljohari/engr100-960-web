@@ -1,0 +1,74 @@
+extends layouts/main.pug
+
+include _staff-card-partial
+
+block content
+  .StaffPage 
+    .Container
+      h1 Meet The Staff
+
+      h3 Faculty
+      - 
+        var faculty = [
+          { 
+            name: "Robin Fowler",
+            email: "rootsr@umich.edu",
+            pronouns: "She / Her / They",
+            position: "TC",
+            department: "Program in Technical Communication",
+            image: "/assets/images/headshots/fowler_robin.jpg"
+          },
+          { 
+            name: "Robin Fowler",
+            email: "rootsr@umich.edu",
+            pronouns: "She / Her / They",
+            position: "TC",
+            department: "Program in Technical Communication",
+            image: "/assets/images/headshots/fowler_robin.jpg"
+          },
+          { 
+            name: "Robin Fowler",
+            email: "rootsr@umich.edu",
+            pronouns: "She / Her / They",
+            position: "TC",
+            department: "Program in Technical Communication",
+            image: "/assets/images/headshots/fowler_robin.jpg"
+          }
+        ];
+
+      .StaffProfileCardDeck
+        each prof in faculty 
+          +staff_card(prof)
+
+      h3 Instructional Aides
+      - 
+        var ias = [
+          { 
+            name: "Maggie Carroll",
+            email: "mkcarrol@umich.edu",
+            pronouns: "She / Her / They",
+            position: "IA",
+            department: "Naval Architecture and Marine Engineering",
+            image: "/assets/images/headshots/carroll_maggie.jpg"
+          },
+          { 
+            name: "Connor Arrigan",
+            email: "arriganc@umich.edu",
+            pronouns: "She / Her / They",
+            position: "IA",
+            department: "Naval Architecture and Marine Engineering",
+            image: "/assets/images/headshots/arrigan_connor.jpg"
+          },
+          { 
+            name: "Maggie Carroll",
+            email: "mkcarrol@umich.edu",
+            pronouns: "She / Her / They",
+            position: "IA",
+            department: "Naval Architecture and Marine Engineering",
+            image: "/assets/images/headshots/carroll_maggie.jpg"
+          }
+        ];
+
+      .StaffProfileCardDeck
+        each ia in ias
+          +staff_card(ia)

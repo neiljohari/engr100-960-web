@@ -10,7 +10,7 @@
     @include reset-link;
 
     text-transform: uppercase;
-    font-size: $h4-font-size;
+    font-size: $h1-font-size;
     white-space: nowrap;
   }
 
@@ -24,25 +24,6 @@
   .Navbar {
     display: flex;
     flex-wrap: nowrap;
-
-    &_brand {
-      font-size: $h3-font-size;
-    }
-    &_tagline {
-      font-size: $font-size-base;
-      font-weight: lighter;
-    }
   }
 }
 
-@media only screen and (min-width: 1024px) {
-  .Navbar {
-    &_brand {
-      font-size: $h3-font-size;
-    }
-    &_tagline {
-      font-size: $h5-font-size;
-      font-weight: lighter;
-    }
-  }
-}
