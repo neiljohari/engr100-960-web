@@ -12,8 +12,6 @@
 
   $root: &;
 
-  margin-right: $spacer * 2;
-
   // Rounded top corners to fit with card, and responsive
   &_image {
     transition: max-height 0.15s ease-out;
@@ -94,6 +92,8 @@
 @media only screen and (min-width: 1024px) {
   .MarketingCard {
     $root: &;
+
+    margin-right: $spacer * 2;
 
     // Bold card head on hover and card selection
     &:hover {

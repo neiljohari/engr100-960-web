@@ -10,12 +10,12 @@
     @include reset-link;
 
     text-transform: uppercase;
-    font-size: $h2-font-size;
+    font-size: $h3-font-size;
     white-space: nowrap;
   }
 
   &_tagline {
-    font-size: $font-size-base * 0.65;
+    font-size: $font-size-base * 0.45;
     text-transform: uppercase;
     margin-top: 1em;
   }
