@@ -10,13 +10,14 @@
     @include reset-link;
 
     text-transform: uppercase;
-    font-size: $h1-font-size;
+    font-size: $h2-font-size;
     white-space: nowrap;
   }
 
   &_tagline {
     font-size: $font-size-base * 0.65;
     text-transform: uppercase;
+    margin-top: 1em;
   }
 }
 
@@ -24,6 +25,13 @@
   .Navbar {
     display: flex;
     flex-wrap: nowrap;
+
+    &_brandLink {
+      font-size: $h1-font-size;
+    }
+
+    &_tagline {
+      font-size: $font-size-base * 0.85;
+    }
   }
 }
-
