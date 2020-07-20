@@ -7,13 +7,17 @@ block content
     .Container
       h1 Meet The Staff
 
+      .StaffSearch
+        input(type="text", id="staffSearch", onkeyup="staffSearch()",
+        placeholder="Search for staff by name, position, department, etc...").StaffSearch_input
+
       h3 Faculty
       - 
         var faculty = [
           { 
             name: "Aaron Ridley",
             email: "aridley@umich.edu",
-            pronouns: "He / Him / His / Himself",
+            pronouns: "[placeholder]",
             position: "Engineering Lecturer",
             department: "Climate and Space Sciences",
             image: "/assets/images/headshots/ridley_aaron.jpg"
@@ -21,7 +25,7 @@ block content
           {
             name: "Laura Alford",
             email: "lslavice@umich.edu",
-            pronouns: "She / Her / Hers / Herself",
+            pronouns: "[placeholder]",
             position: "Engineering Lecturer",
             department: "Naval Architecture and Marine Engineering",
             image: "/assets/images/headshots/alford_laura.jpg"
@@ -29,7 +33,7 @@ block content
           { 
             name: "Roger De Roo",
             email: "deroo@umich.edu",
-            pronouns: "He / Him / His / Himself",
+            pronouns: "[placeholder]",
             position: "Engineering Lecturer",
             department: "Climate and Space Sciences",
             image: "/assets/images/headshots/de_roo_roger.jpg"
@@ -37,7 +41,7 @@ block content
           {
             name: "Alan Hogg",
             email: "alanhogg@umich.edu",
-            pronouns: "He / Him / His / Himself",
+            pronouns: "[placeholder]",
             position: "Technical Communication Lecturer",
             department: "Program in Technical Communication",
             image: "/assets/images/headshots/hogg_alan.jpg"
@@ -46,7 +50,7 @@ block content
           {
             name: "Krista Quinn",
             email: "kristaqu@umich.edu",
-            pronouns: "She / Her / Hers / Herself",
+            pronouns: "[placeholder]",
             position: "First-Year Programs Manager",
             department: "Academic Programs",
             image: "/assets/images/headshots/quinn_krista.jpg"
@@ -54,15 +58,15 @@ block content
           { 
             name: "Robin Fowler",
             email: "rootsr@umich.edu",
-            pronouns: "She / Her / They",
-            position: "TC",
+            pronouns: "[placeholder]",
+            position: "Technical Communication Lecturer",
             department: "Program in Technical Communication",
             image: "/assets/images/headshots/fowler_robin.jpg"
           },
 
         ];
 
-      .StaffProfileCardDeck
+      .StaffProfileCardDeck#faculty
         each prof in faculty 
           +staff_card(prof)
 
@@ -72,7 +76,7 @@ block content
           { 
             name: "Maggie Carroll",
             email: "mkcarrol@umich.edu",
-            pronouns: "She / Her / They",
+            pronouns: "[placeholder]",
             position: "IA",
             department: "Naval Architecture and Marine Engineering",
             image: "/assets/images/headshots/carroll_maggie.jpg"
@@ -80,7 +84,7 @@ block content
           { 
             name: "Connor Arrigan",
             email: "arriganc@umich.edu",
-            pronouns: "She / Her / They",
+            pronouns: "[placeholder]",
             position: "IA",
             department: "Naval Architecture and Marine Engineering",
             image: "/assets/images/headshots/arrigan_connor.jpg"
@@ -88,7 +92,7 @@ block content
           { 
             name: "Cay Wagner",
             email: "cowagner@umich.edu",
-            pronouns: "He / Him / His / Himself",
+            pronouns: "[placeholder]",
             position: "IA",
             department: "Electrical Engineering and Computer Science",
             image: "/assets/images/headshots/wagner_cay.jpg"
@@ -96,7 +100,7 @@ block content
           {
             name: "Julia Toye",
             email: "jtoye@umich.edu",
-            pronouns: "She / Her / Hers / Herself",
+            pronouns: "[placeholder]",
             position: "IA",
             department: "Mechanical Engineering",
             image: "/assets/images/headshots/toye_julia.jpg"
@@ -104,7 +108,7 @@ block content
           {
             name: "Kitty Ascrizzi",
             email: "kascrizz@umich.edu",
-            pronouns: "She / Her / Hers / Herself",
+            pronouns: "[placeholder]",
             position: "IA",
             department: "Space Science and Engineering",
             image: "/assets/images/headshots/ascrizzi_kitty.jpg"
@@ -119,6 +123,6 @@ block content
           }
         ];
 
-      .StaffProfileCardDeck
+      .StaffProfileCardDeck#ias
         each ia in ias
           +staff_card(ia)

@@ -1,0 +1,30 @@
+@mixin form {
+  text-align: left;
+
+  &_label {
+    margin-bottom: 0.5em;
+    display: block;
+  }
+
+  &_input,
+  &_textarea {
+    @include border-radius;
+
+    display: block;
+    width: 100%;
+    font-size: 18px;
+    line-height: 2em;
+    box-sizing: border-box;
+    padding: $spacer;
+    margin: 1em 0;
+    border: 2px solid lighten($gray, 30%);
+
+    &[type] {
+      height: 2em;
+    }
+  }
+
+  &_textarea {
+    resize: vertical;
+  }
+}
